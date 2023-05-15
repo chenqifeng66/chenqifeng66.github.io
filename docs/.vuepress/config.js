@@ -43,6 +43,10 @@ export default defineUserConfig({
             text: "CSS",
             link: "/css",
           },
+          {
+            text: "Vuepress",
+            link: "/vuepress",
+          },
         ],
       },
     ],
