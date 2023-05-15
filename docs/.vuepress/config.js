@@ -15,13 +15,22 @@ export default defineUserConfig({
     repo: "https://github.com/chenqifeng66/MyBlog",
     // 主页
     home: "/",
+    // 图标资源
+    iconAssets: "iconfont",
     navbar: [
+      {
+        text: "主页",
+        link: "/",
+        icon: "home",
+      },
       {
         text: "介绍",
         link: "/intro/",
+        icon: "profile",
       },
       {
         text: "文档",
+        icon: "article",
         children: [
           {
             text: "HTML",
@@ -32,8 +41,12 @@ export default defineUserConfig({
             link: "/css",
           },
           {
-            text: "Vuepress",
-            link: "/vuepress",
+            text: "JavaScript",
+            link: "/javascript",
+          },
+          {
+            text: "Vue",
+            link: "/vue",
           },
         ],
       },
@@ -41,8 +54,16 @@ export default defineUserConfig({
     plugins: {
       copyCode: {},
       git: true,
+      blog: true,
     },
-    sidebar: "auto",
+    blog: {
+      name: "Chen",
+      description: "只会一点前端",
+    },
+    sidebar: {
+      "/css/": "structure",
+      "/vue/": "structure",
+    },
   }),
   plugins: [
     // 搜索功能
