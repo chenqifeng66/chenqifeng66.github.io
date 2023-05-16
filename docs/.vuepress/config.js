@@ -55,6 +55,9 @@ export default defineUserConfig({
       copyCode: {},
       git: true,
       blog: true,
+      mdEnhance: {
+        demo: true,
+      },
     },
     blog: {
       name: "Chen",
