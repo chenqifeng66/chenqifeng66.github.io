@@ -57,6 +57,8 @@ export default defineUserConfig({
       blog: true,
       mdEnhance: {
         demo: true,
+        // 自定义容器
+        container: true,
       },
     },
     blog: {
