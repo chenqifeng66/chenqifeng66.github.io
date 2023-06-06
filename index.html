@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
+      flex-direction: column;
+    }
+    div{
+      width: 200px;
+      height: 30px;
+      background-color: aquamarine;
+      display: flex;
+      justify-content: space-between;
+      
+    }
+    .up{
+      transition: all .5s;
+      transform: translateY(-30px);
+
+    }
+    .leave{
+      transition: all .5s;
+      transform: translateX(200px);
+      opacity: 0;
+    }
+    .list{
+      display: flex;
+      flex-direction: column;
+    }
+    .list .item{
+      display: flex;
+      
+    }
+  </style>
+</head>
+<body>
+  <div>1<button class="top">置顶</button><button class="del">删除</button></div>
+  <div>2<button class="top">置顶</button><button class="del">删除</button></div>
+  <div>3<button class="top">置顶</button><button class="del">删除</button></div>
+  <div>4<button class="top">置顶</button><button class="del">删除</button></div>
+  <div>5<button class="top">置顶</button><button class="del">删除</button></div>
+  <div>6<button class="top">置顶</button><button class="del">删除</button></div>
+  <div>7<button class="top">置顶</button><button class="del">删除</button></div>
+  <div>8<button class="top">置顶</button><button class="del">删除</button></div>
+</body>
+
+<script>
+  const topBtns = document.querySelectorAll(".top")
+  topBtns.forEach((btn,index) => {
+    btn.addEventListener('click',function(e){
+      console.log(e);
+    // for(let i = )
+    // 点击项移到最顶部
+    e.target.parentNode.style.transition = "all .5s"
+    e.target.parentNode.style.transform = `translateY(-${index*30}px)`
+
+    setTimeout(()=>{
+      e.target.parentNode.parentNode.insertBefore(e.target.parentNode,e.target.parentNode.parentNode.firstChild)
+      e.target.parentNode.style.transition = ""
+      e.target.parentNode.style.transform = ''
+    },500)
+    // 上面的往下移
+    for(let i = index-1;i >= 0;i--){
+      console.log(topBtns[i]);
+      topBtns[i].parentNode.style.transition = "all .5s"
+      topBtns[i].parentNode.style.transform = 'translateY(30px)'
+      setTimeout(()=>{
+        topBtns[i].parentNode.style.transition = ""
+      topBtns[i].parentNode.style.transform = ''
+      },500)
+    }
+    
+    
+  })
+  });
+  const delBtns = document.querySelectorAll(".del")
+  delBtns.forEach((btn,index) => {
+    btn.addEventListener('click',function(e){
+      // 往右移动然后消失
+    e.target.parentNode.classList.add('leave')
+    // 动画完毕后删除节点
+    setTimeout(()=>{
+      e.target.parentNode.parentNode.removeChild(e.target.parentNode)
+    },500)
+    // 上面的往下移
+    for(let i = index+ 1;i < delBtns.length;i++){
+      // 上移动画
+      delBtns[i].parentNode.classList.add('up')
+      // 动画完毕后移除样式
+      setTimeout(()=>{
+        delBtns[i].parentNode.classList.remove('up')
+      },500)
+    }
+    
+    
+    
+  })
+  });
+  
+</script>
+</html>
