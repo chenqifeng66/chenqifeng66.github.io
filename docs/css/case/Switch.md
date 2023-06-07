@@ -2,7 +2,9 @@
 title: Switch
 ---
 
-::: normal-demo 效果展示
+## 效果
+
+::: normal-demo 源码
 
 ```html
 <input type="checkbox" id="my-switch" /><label for="my-switch"></label>
@@ -41,7 +43,7 @@ input[type="checkbox"]:checked ~ label::after {
 
 :::
 
-**实现思路**
+## 实现思路
 
 1. 隐藏 input 的样式
 
