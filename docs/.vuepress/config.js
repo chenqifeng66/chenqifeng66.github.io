@@ -29,7 +29,7 @@ export default defineUserConfig({
         icon: "profile",
       },
       {
-        text: "文档",
+        text: "笔记",
         icon: "article",
         children: [
           {
@@ -47,6 +47,10 @@ export default defineUserConfig({
           {
             text: "Vue",
             link: "/vue",
+          },
+          {
+            text: "业务场景",
+            link: "/business",
           },
         ],
       },
@@ -68,6 +72,7 @@ export default defineUserConfig({
     sidebar: {
       "/css/": "structure",
       "/vue/": "structure",
+      "/business/": "structure",
     },
   }),
   plugins: [
