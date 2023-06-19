@@ -73,6 +73,7 @@ export default defineUserConfig({
       "/css/": "structure",
       "/vue/": "structure",
       "/business/": "structure",
+      "/javascript/": "structure",
     },
   }),
   plugins: [
