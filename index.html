@@ -1,110 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    body{
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      /* justify-content: center; */
-      align-items: center;
-      flex-direction: column;
-    }
-    div{
-      width: 200px;
-      height: 30px;
-      background-color: aquamarine;
-      display: flex;
-      justify-content: space-between;
-      
-    }
-    .up{
-      transition: all .5s;
-      transform: translateY(-30px);
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .flip {
+        display: inline-block;
+        position: relative;
+        width: 60px;
+        height: 100px;
+        line-height: 100px;
+        border: solid 1px #000;
+        border-radius: 10px;
+        background: #fff;
+        font-size: 66px;
+        color: #fff;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        font-family: "Helvetica Neue";
+      }
+      .flip .digital::before,
+      .flip .digital::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        background: #000;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
 
-    }
-    .leave{
-      transition: all .5s;
-      transform: translateX(200px);
-      opacity: 0;
-    }
-    .list{
-      display: flex;
-      flex-direction: column;
-    }
-    .list .item{
-      display: flex;
-      
-    }
-  </style>
-</head>
-<body>
-  <div>1<button class="top">置顶</button><button class="del">删除</button></div>
-  <div>2<button class="top">置顶</button><button class="del">删除</button></div>
-  <div>3<button class="top">置顶</button><button class="del">删除</button></div>
-  <div>4<button class="top">置顶</button><button class="del">删除</button></div>
-  <div>5<button class="top">置顶</button><button class="del">删除</button></div>
-  <div>6<button class="top">置顶</button><button class="del">删除</button></div>
-  <div>7<button class="top">置顶</button><button class="del">删除</button></div>
-  <div>8<button class="top">置顶</button><button class="del">删除</button></div>
-</body>
+      .flip .digital::before {
+        top: 0;
+        bottom: 50%;
+        border-radius: 10px 10px 0 0;
+        border-bottom: solid 1px #666;
+      }
 
-<script>
-  const topBtns = document.querySelectorAll(".top")
-  topBtns.forEach((btn,index) => {
-    btn.addEventListener('click',function(e){
-      console.log(e);
-    // for(let i = )
-    // 点击项移到最顶部
-    e.target.parentNode.style.transition = "all .5s"
-    e.target.parentNode.style.transform = `translateY(-${index*30}px)`
+      .flip .digital::after {
+        top: 50%;
+        bottom: 0;
+        border-radius: 0 0 10px 10px;
+        line-height: 0;
+      }
 
-    setTimeout(()=>{
-      e.target.parentNode.parentNode.insertBefore(e.target.parentNode,e.target.parentNode.parentNode.firstChild)
-      e.target.parentNode.style.transition = ""
-      e.target.parentNode.style.transform = ''
-    },500)
-    // 上面的往下移
-    for(let i = index-1;i >= 0;i--){
-      console.log(topBtns[i]);
-      topBtns[i].parentNode.style.transition = "all .5s"
-      topBtns[i].parentNode.style.transform = 'translateY(30px)'
-      setTimeout(()=>{
-        topBtns[i].parentNode.style.transition = ""
-      topBtns[i].parentNode.style.transform = ''
-      },500)
-    }
-    
-    
-  })
-  });
-  const delBtns = document.querySelectorAll(".del")
-  delBtns.forEach((btn,index) => {
-    btn.addEventListener('click',function(e){
-      // 往右移动然后消失
-    e.target.parentNode.classList.add('leave')
-    // 动画完毕后删除节点
-    setTimeout(()=>{
-      e.target.parentNode.parentNode.removeChild(e.target.parentNode)
-    },500)
-    // 上面的往下移
-    for(let i = index+ 1;i < delBtns.length;i++){
-      // 上移动画
-      delBtns[i].parentNode.classList.add('up')
-      // 动画完毕后移除样式
-      setTimeout(()=>{
-        delBtns[i].parentNode.classList.remove('up')
-      },500)
-    }
-    
-    
-    
-  })
-  });
-  
-</script>
+      .flip .number0::before,
+      .flip .number0::after {
+        content: "0";
+      }
+
+      .flip .number1::before,
+      .flip .number1::after {
+        content: "1";
+      }
+
+      .flip.down .front:before {
+        z-index: 3;
+      }
+
+      .flip.down .back:after {
+        z-index: 2;
+        transform-origin: 50% 0%;
+        transform: perspective(160px) rotateX(180deg);
+      }
+
+      .flip.down .front:after,
+      .flip.down .back:before {
+        z-index: 1;
+      }
+
+      .flip.up .front:after {
+        z-index: 3;
+      }
+
+      .flip.up .back:before {
+        z-index: 2;
+        transform-origin: 50% 100%;
+        transform: perspective(160px) rotateX(-180deg);
+      }
+
+      .flip.down.go .front:before {
+        transform-origin: 50% 100%;
+        animation: frontFlipDown 0.6s ease-in-out both;
+        box-shadow: 0 -2px 6px rgba(255, 255, 255, 0.3);
+        backface-visibility: hidden;
+      }
+
+      .flip.down.go .back:after {
+        animation: backFlipDown 0.6s ease-in-out both;
+      }
+
+      @keyframes frontFlipDown {
+        0% {
+          transform: perspective(160px) rotateX(0deg);
+        }
+
+        100% {
+          transform: perspective(160px) rotateX(-180deg);
+        }
+      }
+
+      @keyframes backFlipDown {
+        0% {
+          transform: perspective(160px) rotateX(180deg);
+        }
+
+        100% {
+          transform: perspective(160px) rotateX(0deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flip down">
+      <!-- 位于前面的纸牌 -->
+      <div class="digital front number0"></div>
+      <!-- 位于后面的纸牌 -->
+      <div class="digital back number1"></div>
+    </div>
+  </body>
 </html>
