@@ -128,3 +128,9 @@ git rebase --skip
 # 强制推送
 git push -f
 ```
+
+## 取消合并
+
+```git
+git rebase --abort
+```
