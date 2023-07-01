@@ -45,6 +45,10 @@ export default defineUserConfig({
             link: "/javascript",
           },
           {
+            text: "Git",
+            link: "/git",
+          },
+          {
             text: "Vue",
             link: "/vue",
           },
@@ -74,6 +78,7 @@ export default defineUserConfig({
       "/vue/": "structure",
       "/business/": "structure",
       "/javascript/": "structure",
+      "/git/": "structure",
     },
   }),
   plugins: [
