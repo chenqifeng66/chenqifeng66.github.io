@@ -1,5 +1,5 @@
 ---
-title: 合并commit
+title: 合并 commit
 ---
 
 ## 合并未 push 的 commit
