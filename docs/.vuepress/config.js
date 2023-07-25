@@ -3,10 +3,11 @@ import { hopeTheme } from "vuepress-theme-hope";
 import { searchProPlugin } from "vuepress-plugin-search-pro";
 
 export default defineUserConfig({
-  base: "/MyBlog/",
+  base: "/",
   lang: "zh-CN",
   title: "MyBlog",
   description: "欢迎来到我的个人博客",
+  dest: "dist/",
   name: "reco",
   theme: hopeTheme({
     // logo
