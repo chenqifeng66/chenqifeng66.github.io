@@ -5,9 +5,12 @@ import { searchProPlugin } from "vuepress-plugin-search-pro";
 export default defineUserConfig({
   base: "/",
   lang: "zh-CN",
-  title: "MyBlog",
+  title: "C-Blog",
   description: "欢迎来到我的个人博客",
+  // 打包路径
   dest: "dist/",
+  // favicon 图标
+  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   name: "reco",
   theme: hopeTheme({
     // logo
