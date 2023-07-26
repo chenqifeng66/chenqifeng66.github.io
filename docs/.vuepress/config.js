@@ -16,7 +16,7 @@ export default defineUserConfig({
     // logo
     logo: "/images/fox.svg",
     // github地址
-    repo: "https://github.com/chenqifeng66/MyBlog",
+    repo: "https://github.com/chenqifeng66/chenqifeng66.github.io",
     // 主页
     home: "/",
     // 图标资源
@@ -58,7 +58,7 @@ export default defineUserConfig({
           },
           {
             text: "业务场景",
-            link: "/business",
+            link: "/业务场景",
           },
         ],
       },
