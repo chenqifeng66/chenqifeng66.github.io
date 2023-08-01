@@ -48,7 +48,7 @@ prettier：格式化代码工具
 pnpm add prettier -D
 ```
 
-格式化命令：`pnpm prettier --write` or `npx prettier --write`
+格式化命令：`pnpm prettier --write 目录名` or `npx prettier --write 目录名`
 
 ## 安装 lint-staged
 
