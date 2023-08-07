@@ -60,6 +60,10 @@ export default defineUserConfig({
             text: "业务场景",
             link: "/业务场景",
           },
+          {
+            text: "组件库",
+            link: "/组件库",
+          },
         ],
       },
     ],
@@ -80,9 +84,10 @@ export default defineUserConfig({
     sidebar: {
       "/css/": "structure",
       "/vue/": "structure",
-      "/business/": "structure",
+      "/业务场景/": "structure",
       "/javascript/": "structure",
       "/git/": "structure",
+      "/组件库/": "structure",
     },
   }),
   plugins: [
