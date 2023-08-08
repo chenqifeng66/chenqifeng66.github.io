@@ -2,4 +2,4 @@
 
 使用 Vuepress 搭建的个人博客
 
-https://chenqifeng66.github.io/MyBlog/
+https://chenqifeng66.github.io
