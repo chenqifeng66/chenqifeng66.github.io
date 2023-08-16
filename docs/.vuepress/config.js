@@ -70,7 +70,7 @@ export default defineUserConfig({
     plugins: {
       copyCode: {},
       git: true,
-      blog: true,
+      // blog: true,
       mdEnhance: {
         demo: true,
         // 自定义容器

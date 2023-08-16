@@ -6,7 +6,7 @@ heroImage: /images/fox.svg
 # 首页按钮
 actions:
   - text: Go →
-    link: /article/
+    link: /intro/
     type: primary
   # - text: 项目简介
   #   link: /guide/
