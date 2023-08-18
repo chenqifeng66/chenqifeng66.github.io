@@ -77,10 +77,10 @@ export default defineUserConfig({
         container: true,
       },
     },
-    blog: {
-      name: "Chen",
-      description: "只会一点前端",
-    },
+    // blog: {
+    //   name: "Chen",
+    //   description: "只会一点前端",
+    // },
     sidebar: {
       "/css/": "structure",
       "/vue/": "structure",
