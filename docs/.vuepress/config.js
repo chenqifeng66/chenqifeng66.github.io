@@ -37,10 +37,6 @@ export default defineUserConfig({
         icon: "article",
         children: [
           {
-            text: "HTML",
-            link: "/html",
-          },
-          {
             text: "CSS",
             link: "/css",
           },
@@ -62,7 +58,7 @@ export default defineUserConfig({
           },
           {
             text: "组件库",
-            link: "/组件库",
+            link: "/components",
           },
         ],
       },
@@ -76,6 +72,11 @@ export default defineUserConfig({
         // 自定义容器
         container: true,
       },
+      // 代码主题
+      prismjs: {
+        // 日间模式时，代码块以夜间模式的方式呈现
+        light: "one-dark",
+      },
     },
     // blog: {
     //   name: "Chen",
@@ -87,7 +88,7 @@ export default defineUserConfig({
       "/业务场景/": "structure",
       "/javascript/": "structure",
       "/git/": "structure",
-      "/组件库/": "structure",
+      "/components/": "structure",
     },
   }),
   plugins: [
