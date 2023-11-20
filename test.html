@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      class MyPromise {
+        constructor(func) {
+          this.state = Symbol("state");
+          func(this.resolve.bind(this), this.reject.bind(this));
+        }
+        resolve(value) {
+          window.queueMicrotask(() => {
+            this.thenCallback && this.thenCallback(value);
+          });
+        }
+
+        reject(error) {
+          // window.queueMicrotask(() => {
+          //   if (this.catchCallback) {
+          //     this.catchCallback(error);
+          //   } else {
+          //     throw new Error("Promise rejected", 1);
+          //   }
+          // });
+
+          setTimeout(() => {
+            if (this.catchCallback) {
+              this.catchCallback(error);
+            } else {
+              throw new Error("Promise rejected", 1);
+            }
+          });
+        }
+
+        then(callback) {
+          this.thenCallback = callback;
+          return new MyPromise((resolve, reject) => {});
+        }
+        catch(callback) {
+          this.catchCallback = callback;
+          return new MyPromise((resolve, reject) => {});
+        }
+      }
+
+      function fun1() {
+        let p = new MyPromise((resolve, reject) => {
+          console.log(1);
+          reject(2);
+          console.log(3);
+          setTimeout(() => {
+            console.log(4);
+          });
+        });
+
+        const a = p.then((tip) => {
+          console.log(tip);
+        });
+
+        // console.log(a === p);
+      }
+
+      function fun2() {
+        let promise = new Promise((resolve, reject) => {
+          console.log(1);
+          reject(2);
+          console.log(3);
+          setTimeout(() => {
+            console.log(4);
+          });
+        });
+
+        const promise_a = promise.then((tip) => {
+          console.log(tip);
+        });
+        // console.log(promise === promise_a);
+      }
+
+      // fun1();
+      fun2();
+    </script> -->
+
+    <script>
+      class MyPromise {
+        static PromiseState = "pending";
+        constructor(func) {
+          console.log(this);
+          func(MyPromise.resolve);
+        }
+
+        static resolve(value) {
+          console.log(MyPromise.PromiseState);
+          // 由于 promise 属于微任务，这里用 queueMicrotask 来将回调添加到微任务队列中
+          window.queueMicrotask(() => {
+            this.thenCallback && this.thenCallback(value);
+          });
+        }
+
+        then(callback) {
+          this.thenCallback = callback;
+          // 返回 this，支持链式调用
+          return this;
+        }
+      }
+
+      const p = new MyPromise((res) => {
+        res("1");
+      });
+
+      console.log(p);
+
+      console.dir(MyPromise);
+    </script>
+  </body>
+</html>

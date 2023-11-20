@@ -5,7 +5,7 @@ import { searchProPlugin } from "vuepress-plugin-search-pro";
 export default defineUserConfig({
   base: "/",
   lang: "zh-CN",
-  title: "C-Blog",
+  title: "C",
   description: "欢迎来到我的个人博客",
   // 打包路径
   dest: "dist/",
@@ -43,6 +43,10 @@ export default defineUserConfig({
           {
             text: "JavaScript",
             link: "/javascript",
+          },
+          {
+            text: "TypeScript",
+            link: "/typescript",
           },
           {
             text: "Git",
@@ -87,6 +91,7 @@ export default defineUserConfig({
       "/vue/": "structure",
       "/业务场景/": "structure",
       "/javascript/": "structure",
+      "/typescript/": "structure",
       "/git/": "structure",
       "/components/": "structure",
     },
