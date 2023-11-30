@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-b4bc0b02","path":"/javascript/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/","title":"高阶函数","lang":"zh-CN","frontmatter":{"title":"高阶函数","article":false,"feed":false,"sitemap":false},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null,"excerpt":""}');export{e as data};

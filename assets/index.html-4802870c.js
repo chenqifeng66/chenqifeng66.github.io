@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-68ac5bbc","path":"/vue/vue3/%E6%BA%90%E7%A0%81/","title":"源码","lang":"zh-CN","frontmatter":{"title":"源码","article":false,"feed":false,"sitemap":false},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null,"excerpt":""}');export{e as data};
